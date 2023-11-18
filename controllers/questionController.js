@@ -13,7 +13,7 @@ class QuestionController {
 
         difficultyTypes.forEach(difficulty => {
             const marksPerQuestion = this.questionModel.getQuestionsByDifficulty(difficulty)[0].marks;
-            const difficultyCount = Math.ceil(totalMarks * difficultyDistribution[difficulty] / marksPerQuestion);
+            const difficultyCount = Math.ceil(difficultyDistribution[difficulty] / marksPerQuestion);
             let questions = this.questionModel.getQuestionsByDifficulty(difficulty);
       
             // Shuffle the questions array and assign it back to the variable

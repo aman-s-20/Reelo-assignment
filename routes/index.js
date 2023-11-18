@@ -5,9 +5,9 @@ const QuestionController = require('../controllers/questionController');
 
 const questionController = new QuestionController();
 
-router.get('/', (req, res) => {
-  const totalMarks = 100;
-  const difficultyDistribution = { Easy: 0.2, Medium: 0.5, Hard: 0.3 };
+router.post('/', (req, res) => {
+  const totalMarks = req.body.totalMarks;
+  const difficultyDistribution = { Easy: req.body.Easy, Medium: req.body.Medium, Hard: req.body.Hard };
   const questionPaper = questionController.generateQuestionPaper(totalMarks, difficultyDistribution);
 
   res.json(questionPaper);
