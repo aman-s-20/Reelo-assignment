@@ -1,53 +1,14 @@
-// models/questionModel.js
 const _ = require('lodash');
+const questionsData = require('../questionsData');
 
 class QuestionModel {
-  constructor() {
-    this.questionStore = [
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Easy", marks: 5 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Medium", marks: 10 },
-      { question: "What is the speed of light", subject: "Physics", topic: "Waves", difficulty: "Hard", marks: 15 },
+    constructor() {
+        this.questionStore = [...questionsData];
+    }
 
-      // Add more questions as needed
-    ];
-  }
-
-  getQuestionsByDifficulty(difficulty) {
-    return _.filter(this.questionStore, { difficulty });
-  }
+    getQuestionsByDifficulty(difficulty) {
+        return this.questionStore.filter(question => question.difficulty === difficulty);
+    }
 }
 
 module.exports = QuestionModel;
